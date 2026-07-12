@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JLPT N5 日文互動學習平台 — 五十音、單字、漢字、文法、測驗，全方位掌握 N5 基礎">
+  <title>日本語 N5 — 互動學習</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇯🇵</text></svg>">
+</head>
+<body>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content" id="modal-body"></div>
+  </div>
+
+  <!-- App Container -->
+  <div class="app-container">
+  
+    <!-- Auth Header -->
+    <div id="auth-header" style="display: flex; justify-content: flex-end; padding: 12px 20px; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;">
+      <div id="auth-logged-out" style="display: flex;">
+        <button class="btn btn-primary" onclick="showAuthModal()" style="padding: 4px 12px; font-size: 0.85rem;">登入/註冊以雲端同步</button>
+      </div>
+      <div id="auth-logged-in" style="display: none; align-items: center; gap: 12px;">
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">已登入: <span id="auth-user-name" style="color: white; font-weight: bold;"></span></span>
+        <button class="btn btn-ghost" onclick="signOut()" style="padding: 4px 12px; font-size: 0.85rem;">登出</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div class="page active" id="page-dashboard">
+      <div id="dashboard-content"></div>
+    </div>
+
+    <!-- Kana Page -->
+    <div class="page" id="page-kana">
+      <div id="kana-content"></div>
+    </div>
+
+    <!-- Vocabulary Page -->
+    <div class="page" id="page-vocabulary">
+      <div id="vocab-content"></div>
+    </div>
+
+    <!-- Kanji Page -->
+    <div class="page" id="page-kanji">
+      <div id="kanji-content"></div>
+    </div>
+
+    <!-- Grammar Page -->
+    <div class="page" id="page-grammar">
+      <div id="grammar-content"></div>
+    </div>
+
+    <!-- Quiz Page -->
+    <div class="page" id="page-quiz">
+      <div id="quiz-content"></div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item active" data-page="dashboard" id="nav-dashboard">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">首頁</span>
+    </div>
+    <div class="nav-item" data-page="kana" id="nav-kana">
+      <span class="nav-icon">あ</span>
+      <span class="nav-label">五十音</span>
+    </div>
+    <div class="nav-item" data-page="vocabulary" id="nav-vocabulary">
+      <span class="nav-icon">📝</span>
+      <span class="nav-label">單字</span>
+    </div>
+    <div class="nav-item" data-page="kanji" id="nav-kanji">
+      <span class="nav-icon">漢</span>
+      <span class="nav-label">漢字</span>
+    </div>
+    <div class="nav-item" data-page="grammar" id="nav-grammar">
+      <span class="nav-icon">📖</span>
+      <span class="nav-label">文法</span>
+    </div>
+    <div class="nav-item" data-page="quiz" id="nav-quiz">
+      <span class="nav-icon">🎯</span>
+      <span class="nav-label">測驗</span>
+    </div>
+  </nav>
+
+  <!-- Firebase SDKs (Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- Data Scripts -->
+  <script src="data/kana.js"></script>
+  <script src="data/vocabulary.js"></script>
+  <script src="data/kanji.js"></script>
+  <script src="data/grammar.js"></script>
+
+  <!-- Module Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/kana.js"></script>
+  <script src="js/vocabulary.js"></script>
+  <script src="js/kanji.js"></script>
+  <script src="js/grammar.js"></script>
+  <script src="js/quiz.js"></script>
+
+</body>
+</html>
